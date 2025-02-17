@@ -9,7 +9,7 @@ export default function SubmittedBills() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Submitted Bills</h2>
+        <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Submitted Bill</h2>
 
         {submittedBills.length > 0 ? (
           submittedBills.map((bill, index) => (
