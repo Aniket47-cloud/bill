@@ -6,6 +6,7 @@ import SelectItem from "./components/SelectItem";
 import Summary from "./components/Summary";
 import React from "react";
 import AddDetails from "./components/AddDetails";
+import SubmittedBills from "./components/SubmittedBills";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/bill-process/select-item" element={<SelectItem />} />
       <Route path="/bill-process/add-details" element={<AddDetails />} />
       <Route path="/bill-process/summary" element={<Summary />} />
+      <Route path="/bill-process/submitted-bills" element={<SubmittedBills />} />
     </Routes>
   );
 }

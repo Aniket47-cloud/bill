@@ -6,8 +6,9 @@ const initialState = {
   date: "",
   description: "",
   briefs: "",
-  measurements: [], // Now storing an array of selected measurements
+  measurements: [],
   items: [],
+  submittedBills: [], 
 };
 
 const billSlice = createSlice({
@@ -28,9 +29,28 @@ const billSlice = createSlice({
       }
     },
     addItem: (state, action) => { state.items.push(action.payload); },
-    reset: () => initialState,
+    submitBill: (state) => {
+      state.submittedBills.push({
+        client: state.client,
+        project: state.project,
+        date: state.date,
+        description: state.description,
+        briefs: state.briefs,
+        measurements: state.measurements,
+        items: state.items,
+      });
+    },
+    reset: (state) => {
+      state.client = "";
+      state.project = "";
+      state.date = "";
+      state.description = "";
+      state.briefs = "";
+      state.measurements = [];
+      state.items = [];
+    },
   },
 });
 
-export const { setClient, setProject, setDate, setDescription, setBriefs, toggleMeasurement, addItem, reset } = billSlice.actions;
+export const { setClient, setProject, setDate, setDescription, setBriefs, toggleMeasurement, addItem, submitBill, reset } = billSlice.actions;
 export default billSlice.reducer;

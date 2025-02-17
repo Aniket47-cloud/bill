@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { reset } from "../store/billSlice";
+import { submitBill, reset } from "../store/billSlice";
 import React from "react";
 
 export default function Summary() {
@@ -47,9 +47,23 @@ export default function Summary() {
           )}
         </ul>
 
-        <button onClick={() => navigate("/bill-process/select-item")} className="w-full bg-yellow-500 text-white py-3 rounded-lg mb-4 hover:bg-yellow-600 transition-all duration-300">Add More Items</button>
+        <button
+          onClick={() => navigate("/bill-process/select-item")}
+          className="w-full bg-yellow-500 text-white py-3 rounded-lg mb-4 hover:bg-yellow-600 transition-all duration-300"
+        >
+          Add More Items
+        </button>
 
-        <button onClick={() => { dispatch(reset()); navigate("/"); }} className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-all duration-300">Save & Submit</button>
+        <button
+          onClick={() => {
+            dispatch(submitBill());
+            dispatch(reset());
+            navigate("/bill-process/submitted-bills");
+          }}
+          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-all duration-300"
+        >
+          Save & Submit
+        </button>
       </div>
     </div>
   );
